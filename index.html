@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>React App</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      .post {
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 20px;
+        margin: 20px;
+        max-width: 600px;
+      }
+      .post-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      .avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 15px;
+      }
+      .post-content {
+        margin-bottom: 20px;
+        font-size: 18px;
+      }
+      .post-image {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      }
+      #like_button_container {
+        margin-top: 20px;
+      }
+      .like-button {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .like-button:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <p>React был создан с целью облегчить разработку пользовательских интерфейсов, предоставляя эффективные инструменты для создания интерактивных веб-приложений. Он позволяет разработчикам создавать большие приложения с изменяющимися данными, не обновляя страницу.</p>
+    <div class="post">
+      <div class="post-header">
+        <img
+          class="avatar"
+          src="https://sun9-21.userapi.com/impg/yOgcv7wJSbQL2DxIYhbOWG2FcOlol0r5-TJrrA/3OsQAQqj8rg.jpg?size=520x0&quality=95&sign=52fc6926c790e8eb78a1348f8bec1d63"
+          alt="avatar"
+        />
+        <h3>5opka</h3>
+      </div>
+      <div class="post-content">
+        Купил одежду.
+      </div>
+      <img
+        class="post-image"
+        src="https://sun9-34.userapi.com/impg/RLYw40irpADVUiydms4K1KOUGDtoiOTbr261PQ/8hcoCl8TXng.jpg?size=520x0&quality=95&sign=9d12007bb589f869133fcf0ed27ea2ef"
+        alt="image1"
+      />
+      <p>
+        Стоит дофига.
+      </p>
+      <img
+        class="post-image"
+        src="https://i.c97.org/p/articles/2015/ai-174586-aux-head-201510222_cennik_t.jpg"
+        alt="image2"
+      />
+      <div id="like_button_container">
+        <div id="like_button_container"></div>
+        <script src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
+        <script>
+          'use strict';
+    
+          const e = React.createElement;
+    
+          class LikeButton extends React.Component {
+            constructor(props) {
+              super(props);
+              this.state = { liked: false };
+            }
+    
+            render() {
+              const likeButtonStyle = {
+                backgroundColor: '#4CAF50',
+                border: 'none',
+                color: 'white',
+                padding: '10px 20px',
+                textAlign: 'center',
+                textDecoration: 'none',
+                display: 'inline-block',
+                fontSize: '16px',
+                borderRadius: '5px',
+                cursor: 'pointer',
+              };
+    
+              if (this.state.liked) {
+                return 'You liked this.';
+              }
+    
+              return e('button', { onClick: () => this.setState({ liked: true }), style: likeButtonStyle }, 'Like');
+            }
+          }
+    
+          const domContainer = document.querySelector('#like_button_container');
+          ReactDOM.render(e(LikeButton), domContainer);
+        </script>
+      </body>
+    </html>
